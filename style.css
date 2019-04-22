@@ -1,0 +1,225 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 30px;
+    font-family: sans-serif;
+    text-align: center;
+    background: radial-gradient(#dbd8e3 3px, transparent 4px),
+        radial-gradient(#dbd8e3 3px, transparent 4px),
+        linear-gradient(#fff 4px, transparent 0),
+        linear-gradient(
+            45deg,
+            transparent 74px,
+            transparent 75px,
+            #dbd8e3 75px,
+            #dbd8e3 76px,
+            transparent 77px,
+            transparent 109px
+        ),
+        linear-gradient(
+            -45deg,
+            transparent 75px,
+            transparent 76px,
+            #dbd8e3 76px,
+            #dbd8e3 77px,
+            transparent 78px,
+            transparent 109px
+        ),
+        #fff;
+    background-size: 109px 109px, 109px 109px, 100% 6px, 109px 109px,
+        109px 109px;
+    background-position: 54px 55px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+}
+
+.board {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: 700px;
+    box-shadow: 0px 5px 10px 0px rgba(102, 0, 204, 0.42);
+}
+
+h1 {
+    color: #137083;
+    border: 3px solid #000;
+    background-color: #fff;
+    width: 700px;
+    margin: 0 auto;
+    padding: 20px 5px;
+    font-size: 24px;
+    box-shadow: 0px 3px 6px 0px rgba(102, 0, 204, 0.42);
+}
+
+.slot {
+    width: 100px;
+    height: 100px;
+    background-color: #000;
+    padding: 10px;
+}
+
+.hole {
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.slot.player1 .hole {
+    background-color: #e66465;
+}
+
+.slot.player1 .hole.win,
+.slot.player1 .hole.loose,
+.slot.player2 .hole.win,
+.slot.player2 .hole.loose {
+    background-color: #fff;
+}
+
+.win,
+.loose {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.win {
+    background-image: url("img/cat.png");
+    background-size: 70px;
+    background-color: #fff;
+}
+
+.loose {
+    background-image: url("img/shit.png");
+    background-size: 60px;
+    background-color: #fff;
+}
+
+.slot.player2 .hole {
+    background-color: #137083;
+}
+
+.winning-popup {
+    background-color: #5e227f;
+    border: 3px solid #000;
+    font-size: 24px;
+    z-index: 10;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 250px;
+    text-align: center;
+    padding-top: 20px;
+    display: none;
+}
+
+.winning-popup p {
+    color: #fff;
+    font-size: 36px;
+}
+
+.winning-popup button {
+    display: block;
+    border: 3px solid #000;
+    background-color: #fff;
+    width: 300px;
+    height: 40px;
+    /*padding: 15px;*/
+    margin: 0 auto;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.winning-popup button:hover,
+.winning-popup button:focus {
+    background-color: #e66465;
+}
+
+.winning-popup button:active {
+    background-color: #5e227f;
+}
+
+.starting-popup {
+    background-color: #5e227f;
+    border: 3px solid #000;
+    font-size: 24px;
+    z-index: 10;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 300px;
+    text-align: center;
+    padding-top: 20px;
+    box-shadow: 0px 5px 15px 0px rgba(102, 0, 204, 0.42);
+}
+
+.starting-popup p {
+    color: #fff;
+}
+
+.starting-popup input {
+    width: 350px;
+    height: 40px;
+    border: 3px solid #000;
+    padding: 8px;
+    margin-bottom: 20px;
+}
+
+.starting-popup button {
+    display: block;
+    border: 3px solid #000;
+    background-color: #fff;
+    width: 150px;
+    height: 40px;
+    padding: 5px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.starting-popup button:hover,
+.starting-popup button:focus {
+    background-color: #e66465;
+}
+
+starting-popup button:active {
+    background-color: #6600cc;
+}
+
+.starting-popup input:focus {
+    border: 3px solid #e66465;
+}
+
+.popup-shaking {
+    animation-duration: 0.6s;
+    animation-name: shake;
+}
+
+@keyframes shake {
+    0%,
+    100% {
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        -webkit-transform: translateX(-55%);
+        transform: translateX(-55%);
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+        -webkit-transform: translateX(-45%);
+        transform: translateX(-45%);
+    }
+}
